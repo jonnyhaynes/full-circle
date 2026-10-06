@@ -31,7 +31,11 @@ export const Media: CollectionConfig = {
     delete: isAdminOrEditor,
   },
   upload: {
-    staticDir: path.resolve(dirname, '../../media'),
+    // Written into `public/` so seeded images ship as static assets. Vercel has
+    // no persistent disk, so the default `media/` folder would be invisible to
+    // the running site. next.config.ts routes Payload's /api/media/file URLs
+    // onto these copies; configuring R2 later takes over the URLs entirely.
+    staticDir: path.resolve(dirname, '../../public/media'),
     mimeTypes: ['image/*'],
     focalPoint: true,
     imageSizes: [

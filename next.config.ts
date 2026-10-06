@@ -100,6 +100,16 @@ const nextConfig: NextConfig = {
       },
     ]
   },
+  async rewrites() {
+    // Payload serves local uploads through /api/media/file/<name>, reading from
+    // staticDir on disk. That works locally, but a Vercel function has no copy
+    // of public/, so those URLs would 404. The same files ship as static
+    // assets, so send the URL there instead. With R2 configured the URLs are
+    // absolute (https://…) and never reach this.
+    return {
+      beforeFiles: [{ destination: '/media/:filename', source: '/api/media/file/:filename' }],
+    }
+  },
   async redirects() {
     // Service detail pages live under /services. The live site serves them at
     // the root, so keep those URLs working with permanent redirects.

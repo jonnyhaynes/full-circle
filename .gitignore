@@ -54,3 +54,8 @@ next-env.d.ts
 
 # agent tooling (taste notes, plans) — personal, not part of the project
 /.commandcode/
+
+# agent tooling installed by marketplace integrations (Neon etc.)
+/.agents/
+/.claude/
+/skills-lock.json
