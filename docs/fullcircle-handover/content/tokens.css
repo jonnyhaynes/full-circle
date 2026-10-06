@@ -1,0 +1,39 @@
+/* Full Circle Event Production — design tokens (from the approved prototypes) */
+:root {
+  /* Colour — brand green comes from the live site (rgb 5,246,14); keep it */
+  --fc-green: #05F60E;
+  --fc-green-35: rgba(5, 246, 14, 0.35);   /* glows, beams */
+  --fc-green-16: rgba(5, 246, 14, 0.16);   /* soft panel washes */
+  --fc-green-highlight: #D6FFD8;           /* travelling highlight on the spinning ring */
+  --fc-black: #050505;                     /* page background */
+  --fc-panel: #0B0B0B;                     /* hero / large panels */
+  --fc-card: #0E0E0E;                      /* cards */
+  --fc-ticket-paper: #F4F4F1;              /* All Access ticket stub */
+  --fc-white: #FFFFFF;
+  --fc-text-muted: rgba(255, 255, 255, 0.72);
+  --fc-text-subtle: rgba(255, 255, 255, 0.55);
+  --fc-line: rgba(255, 255, 255, 0.08);    /* borders on dark */
+  --fc-line-strong: rgba(255, 255, 255, 0.14);
+  --fc-error: #FF8A8A;
+
+  /* Type (Google Fonts) */
+  --fc-font-display: 'Bebas Neue', sans-serif;          /* headlines, numbers, card titles */
+  --fc-font-body: 'Jost', sans-serif;                   /* body, UI (300/400/500/600); also the live site's body font */
+  --fc-font-script: 'Mrs Saint Delafield', cursive;     /* one green script line per hero, rotated -5deg */
+  --fc-font-logo: 'Comfortaa', sans-serif;              /* logo wordmark only */
+
+  --fc-h1: clamp(84px, 11vw, 172px);   /* line-height .84 */
+  --fc-h2: clamp(52px, 6vw, 88px);     /* line-height .9 */
+  --fc-script: clamp(60px, 7.4vw, 118px);
+  --fc-eyebrow: 14px;                  /* 600, letter-spacing 3px, uppercase, green */
+  --fc-body-lg: 18px;                  /* 300, line-height 1.6 */
+
+  /* Shape & space */
+  --fc-radius-hero: 32px;
+  --fc-radius-panel: 24px;
+  --fc-radius-card: 20px;
+  --fc-radius-pill: 999px;
+  --fc-container: 1320px;              /* hero panel is 1360px */
+  --fc-section-gap: clamp(72px, 9vw, 120px);
+  --fc-gutter: 16px;
+}

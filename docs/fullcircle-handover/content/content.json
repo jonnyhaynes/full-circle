@@ -1,0 +1,554 @@
+{
+  "_note": "Structured content for the CMS. Copy marked \"source\":\"live-site\" was taken from fullcircleevents.co.uk (Oct 2026). \"source\":\"draft\" was written during the design phase and needs client sign-off.",
+  "site": {
+    "name": "Full Circle Event Production",
+    "legalName": "Full Circle Event Production Ltd",
+    "tagline": "Innovative AV & event solutions, from concept to completion",
+    "contact": {
+      "email": "info@fullcircleevents.co.uk",
+      "phone": "0114 3499273",
+      "phoneHref": "tel:01143499273",
+      "address": "Meadowhall Road Industrial Estate, Amos Road, Sheffield, S9 1BX",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Amos+Road+Sheffield+S9+1BX"
+    },
+    "social": {
+      "instagram": "https://www.instagram.com/fullcircleeventproduction/",
+      "facebook": "https://www.facebook.com/Fullcircleeventproduction",
+      "youtube": "https://www.youtube.com/@Fullcircleeventproduction"
+    },
+    "nav": [
+      {
+        "label": "About Us",
+        "page": "about"
+      },
+      {
+        "label": "Services",
+        "page": "services"
+      },
+      {
+        "label": "Backstage",
+        "page": "backstage"
+      },
+      {
+        "label": "Contact Us",
+        "page": "contact"
+      }
+    ],
+    "stats": [
+      {
+        "value": "20+",
+        "label": "Years of industry experience",
+        "source": "live-site"
+      },
+      {
+        "value": "2020",
+        "label": "Founded in Sheffield (January 2020)",
+        "source": "live-site"
+      }
+    ]
+  },
+  "home": {
+    "hero": {
+      "headline": [
+        "From concept",
+        "to completion"
+      ],
+      "script": "Bring it full circle",
+      "intro": "Sheffield’s AV hire and event production team. Lighting, sound, staging and technical support for corporate events, festivals, live music, sport and award ceremonies.",
+      "image": "assets/photos/outdoor-stage-led-screens.jpg",
+      "ctas": [
+        {
+          "label": "Enquire here",
+          "page": "contact"
+        },
+        {
+          "label": "Come backstage",
+          "page": "backstage"
+        }
+      ]
+    },
+    "stickyTicket": {
+      "title": "Full Circle All Access",
+      "strap": "Audio · Visual · Infrastructure",
+      "line": "Site visit & tailored quote",
+      "cta": "Get in touch",
+      "page": "contact"
+    },
+    "marqueeEventTypes": [
+      "Conference and Seminars",
+      "Christmas",
+      "Award Ceremonies",
+      "Festivals",
+      "Corporate Events",
+      "Live Music",
+      "Sporting Events"
+    ],
+    "howWeWork": {
+      "heading": "Every event comes full circle",
+      "intro": "We work closely with you at every stage, tailoring the production to bring your vision to life.",
+      "steps": [
+        {
+          "num": "01",
+          "title": "Concept",
+          "body": "We start by listening: your audience, your venue, your budget and the moment you want people to remember.",
+          "source": "draft"
+        },
+        {
+          "num": "02",
+          "title": "Plan",
+          "body": "Site visits, technical specs, power and timings, all mapped out together so there are no surprises on the day.",
+          "source": "draft"
+        },
+        {
+          "num": "03",
+          "title": "Build",
+          "body": "Our crew delivers and installs the staging, sound, lighting and video, then tests everything until it’s show-ready.",
+          "source": "draft"
+        },
+        {
+          "num": "04",
+          "title": "Show",
+          "body": "Experienced technicians run your event live and stay until the last case is loaded out. That’s full circle.",
+          "source": "draft"
+        }
+      ]
+    },
+    "testimonials": [
+      {
+        "quote": "An amazing crew with a wide variety of knowledge and very helpful. Definitely worth giving these lads a try regardless of the type of event you have planned, they can always bring something to it.",
+        "name": "Cllr Ian Jones",
+        "source": "live-site"
+      },
+      {
+        "quote": "Full Circle Events were extremely responsive, friendly and professional. A great team – would definitely recommend!",
+        "name": "Amanda Hobson",
+        "source": "live-site"
+      },
+      {
+        "quote": "Amazing service, very professional & full of knowledge.",
+        "name": "The Hive, Skegness",
+        "source": "live-site"
+      }
+    ],
+    "clientLogos": [
+      {
+        "name": "Nexus Multi Academy Trust",
+        "logo": "assets/client-logos/nexus.png"
+      },
+      {
+        "name": "Rotherham Metropolitan Borough Council",
+        "logo": "assets/client-logos/rotherham-mbc.png"
+      },
+      {
+        "name": "QBC Agency",
+        "logo": "assets/client-logos/qbc-agency.png"
+      },
+      {
+        "name": "Nexdorf Electrical Engineering",
+        "logo": "assets/client-logos/nexdorf.png"
+      },
+      {
+        "name": "Association of British Climbing Walls",
+        "logo": "assets/client-logos/abc-climbing-walls.png"
+      },
+      {
+        "name": "Natural Bodybuilding Worldwide",
+        "logo": "assets/client-logos/nbw.png"
+      }
+    ]
+  },
+  "services": [
+    {
+      "order": 1,
+      "title": "Award Ceremonies",
+      "slug": "award-ceremonies",
+      "group": "CORPORATE",
+      "summary": "Seamless award ceremonies with AV hire, staging, lighting, sound and video, backed by over 20 years of experience.",
+      "image": "assets/photos/svc-award-ceremonies.jpg",
+      "imageAlt": "Business awards stage with LED screens and starcloth",
+      "source": "live-site (shortened)"
+    },
+    {
+      "order": 2,
+      "title": "Conference and Seminars",
+      "slug": "conference-and-seminars",
+      "group": "CORPORATE",
+      "summary": "Corporate conferences, seminars and large-scale industry events, delivered with flawless event production.",
+      "image": "assets/photos/svc-conference-and-seminars.jpg",
+      "imageAlt": "Conference hall with stage, screen and lighting rig",
+      "source": "live-site (shortened)"
+    },
+    {
+      "order": 3,
+      "title": "Exhibition and Product Launches",
+      "slug": "exhibition-and-product-launches",
+      "group": "CORPORATE",
+      "summary": "Everything you need to make your stand or launch stand out, whether you’re showcasing tech, fashion or innovation.",
+      "image": "assets/photos/svc-exhibition-and-product-launches.jpg",
+      "imageAlt": "Exhibition stand lit for a product showcase",
+      "source": "live-site (shortened)"
+    },
+    {
+      "order": 4,
+      "title": "Celebrity Meet and Greets",
+      "slug": "celebrity-meet-and-greets",
+      "group": "CORPORATE",
+      "summary": "Meet and greets for big names in sport and entertainment, including Tyson Fury, Floyd Mayweather, Frank Bruno and Ricky Hatton.",
+      "image": "assets/photos/svc-celebrity-meet-and-greets.jpg",
+      "imageAlt": "Theatre stage set up for a promotions event",
+      "source": "live-site (shortened)"
+    },
+    {
+      "order": 5,
+      "title": "Live Music",
+      "slug": "live-music",
+      "group": "ENTERTAINMENT",
+      "summary": "From intimate acoustic sets and solo artists to high-energy 20-piece bands and dance concerts, with tailored sound, lighting and video.",
+      "image": "assets/photos/svc-live-music.jpg",
+      "imageAlt": "Band performing in a marquee under moving lights",
+      "source": "live-site (shortened)"
+    },
+    {
+      "order": 6,
+      "title": "Festivals",
+      "slug": "festivals",
+      "group": "ENTERTAINMENT",
+      "summary": "From intimate 200-capacity venues to large-scale concerts for up to 10,000 people, with production tailored to your festival.",
+      "image": "assets/photos/svc-festivals.jpg",
+      "imageAlt": "Performer on a festival stage in front of a large crowd",
+      "source": "live-site (shortened)"
+    },
+    {
+      "order": 7,
+      "title": "Sporting Events",
+      "slug": "sporting-events",
+      "group": "ENTERTAINMENT",
+      "summary": "From amateur and professional boxing to dance competitions and marathons, every moment captured and enhanced.",
+      "image": "assets/photos/svc-sporting-events.jpg",
+      "imageAlt": "Full Circle technician at the control desk beside a boxing ring",
+      "source": "live-site (shortened)"
+    },
+    {
+      "order": 8,
+      "title": "Christmas",
+      "slug": "christmas",
+      "group": "COMMUNITY",
+      "summary": "Corporate parties, town and city centre events and venue celebrations, with custom LED lighting displays and light shows.",
+      "image": "assets/photos/svc-christmas.jpg",
+      "imageAlt": "Christmas party set with LED letters and a light-up dance floor",
+      "source": "live-site (shortened)"
+    },
+    {
+      "order": 9,
+      "title": "Bonfire",
+      "slug": "bonfire",
+      "group": "COMMUNITY",
+      "summary": "Community bonfire nights, public fireworks displays and large-scale celebrations, with full-scale event production.",
+      "image": "assets/photos/svc-bonfire.jpg",
+      "imageAlt": "Fireworks over a crowd at a bonfire event",
+      "source": "live-site (shortened)"
+    },
+    {
+      "order": 10,
+      "title": "Remembrance",
+      "slug": "remembrance",
+      "group": "COMMUNITY",
+      "summary": "Proud to have supported Armistice Day celebrations, VE Day commemorations and Remembrance Sunday services across South Yorkshire.",
+      "image": "assets/photos/svc-remembrance.jpg",
+      "imageAlt": "Poppy projection on a church tower",
+      "source": "live-site (shortened)"
+    },
+    {
+      "order": 11,
+      "title": "Charity",
+      "slug": "charity",
+      "group": "COMMUNITY",
+      "summary": "Fundraising galas, charity auctions and memory walks, with full AV production that helps drive impact for your cause.",
+      "image": "assets/photos/svc-charity.jpg",
+      "imageAlt": "Gala dinner hall lit in purple",
+      "source": "live-site (shortened)"
+    },
+    {
+      "order": 12,
+      "title": "Architectural Illuminations",
+      "slug": "architectural-illuminations",
+      "group": "TECHNICAL",
+      "summary": "Dynamic outdoor lighting for grand openings, commemorations and special events, from iconic buildings to venue façades.",
+      "image": "assets/photos/svc-architectural-illuminations.jpg",
+      "imageAlt": "Building façade illuminated in blue",
+      "source": "live-site (shortened)"
+    },
+    {
+      "order": 13,
+      "title": "Power Distribution",
+      "slug": "power-distribution",
+      "group": "TECHNICAL",
+      "summary": "Safe, seamless temporary power for conferences, exhibitions, festivals and galas, supplied and installed by our team.",
+      "image": "assets/photos/svc-power-distribution.jpg",
+      "imageAlt": "Temporary power cabling and distribution ready for install",
+      "source": "live-site (shortened)"
+    }
+  ],
+  "disciplines": [
+    {
+      "title": "Audio",
+      "summary": "Crystal-clear sound for every scale, from small PA setups to festival systems, with engineers on the desk.",
+      "points": [
+        "Sound systems & PA hire",
+        "Live sound & mixing",
+        "Technical support"
+      ]
+    },
+    {
+      "title": "Visual",
+      "summary": "Lighting, video and projection that set the mood and carry the message, inside the venue and out.",
+      "points": [
+        "Lighting design & light shows",
+        "LED video walls & video",
+        "Architectural illumination"
+      ]
+    },
+    {
+      "title": "Infrastructure",
+      "summary": "The backbone of the show, built safely and on schedule, from stages and custom sets to temporary power.",
+      "points": [
+        "Staging & custom stage sets",
+        "Power distribution",
+        "Event design & production management"
+      ]
+    }
+  ],
+  "gallery": [
+    {
+      "order": 1,
+      "image": "assets/photos/outdoor-stage-led-screens.jpg",
+      "aspectRatio": "16 / 9",
+      "caption": "Outdoor stage & LED screens",
+      "alt": "Outdoor stage flanked by two LED screens in front of a summer crowd",
+      "category": "Live & Festivals",
+      "source": "draft caption"
+    },
+    {
+      "order": 2,
+      "image": "assets/photos/awards-stage-reflection.jpg",
+      "aspectRatio": "3 / 2",
+      "caption": "Business Awards 2024",
+      "alt": "Awards stage reflected in a mirrored floor with pyrotechnics",
+      "category": "Awards & Corporate",
+      "source": "draft caption"
+    },
+    {
+      "order": 3,
+      "image": "assets/photos/svc-festivals.jpg",
+      "aspectRatio": "472 / 636",
+      "caption": "Festival main stage",
+      "alt": "Performer with arms raised to a festival crowd",
+      "category": "Live & Festivals",
+      "source": "draft caption"
+    },
+    {
+      "order": 4,
+      "image": "assets/photos/rigging-bw.jpg",
+      "aspectRatio": "742 / 832",
+      "caption": "Rigging day",
+      "alt": "Black and white photo of crew rigging truss in an empty venue",
+      "category": "Behind the Scenes",
+      "source": "draft caption"
+    },
+    {
+      "order": 5,
+      "image": "assets/photos/remembrance-church-projection.jpg",
+      "aspectRatio": "400 / 554",
+      "caption": "Remembrance projection",
+      "alt": "Poppy projection on a church tower",
+      "category": "Community",
+      "source": "draft caption"
+    },
+    {
+      "order": 6,
+      "image": "assets/photos/staff-awards-2024.jpg",
+      "aspectRatio": "588 / 425",
+      "caption": "Staff Awards 2024",
+      "alt": "Staff awards stage with LED screen and branded banners",
+      "category": "Awards & Corporate",
+      "source": "draft caption"
+    },
+    {
+      "order": 7,
+      "image": "assets/photos/festival-crowd-from-stage.jpg",
+      "aspectRatio": "16 / 9",
+      "caption": "Festival crowd",
+      "alt": "View from the stage over a packed festival crowd",
+      "category": "Live & Festivals",
+      "source": "draft caption"
+    },
+    {
+      "order": 8,
+      "image": "assets/photos/svc-award-ceremonies.jpg",
+      "aspectRatio": "472 / 636",
+      "caption": "Awards set build",
+      "alt": "Business awards stage set with starcloth and LED panels",
+      "category": "Awards & Corporate",
+      "source": "draft caption"
+    },
+    {
+      "order": 9,
+      "image": "assets/photos/guitarist-square.jpg",
+      "aspectRatio": "1 / 1",
+      "caption": "Live music",
+      "alt": "Guitarist performing under stage lights",
+      "category": "Live & Festivals",
+      "source": "draft caption"
+    },
+    {
+      "order": 10,
+      "image": "assets/photos/svc-sporting-events.jpg",
+      "aspectRatio": "472 / 636",
+      "caption": "On the desk",
+      "alt": "Full Circle technician at the control desk beside a boxing ring",
+      "category": "Behind the Scenes",
+      "source": "draft caption"
+    },
+    {
+      "order": 11,
+      "image": "assets/photos/svc-bonfire.jpg",
+      "aspectRatio": "472 / 636",
+      "caption": "Bonfire night",
+      "alt": "Fireworks over a crowd at a bonfire event",
+      "category": "Community",
+      "source": "draft caption"
+    },
+    {
+      "order": 12,
+      "image": "assets/photos/awards-stage-set-gold.jpg",
+      "aspectRatio": "3 / 2",
+      "caption": "Business Awards 2025",
+      "alt": "Awards stage set lit gold with LED screens",
+      "category": "Awards & Corporate",
+      "source": "draft caption"
+    },
+    {
+      "order": 13,
+      "image": "assets/photos/dj-stage-view.jpg",
+      "aspectRatio": "4 / 3",
+      "caption": "DJ set, stage view",
+      "alt": "DJ on stage looking out over an evening festival crowd",
+      "category": "Live & Festivals",
+      "source": "draft caption"
+    },
+    {
+      "order": 14,
+      "image": "assets/photos/svc-christmas.jpg",
+      "aspectRatio": "472 / 636",
+      "caption": "Christmas party",
+      "alt": "Christmas party set with LED letters and a light-up dance floor",
+      "category": "Awards & Corporate",
+      "source": "draft caption"
+    },
+    {
+      "order": 15,
+      "image": "assets/photos/venue-rig-logo-screen.jpg",
+      "aspectRatio": "742 / 832",
+      "caption": "Venue rig",
+      "alt": "Venue rigged with truss and lights, LED screen showing the Full Circle logo",
+      "category": "Behind the Scenes",
+      "source": "draft caption"
+    },
+    {
+      "order": 16,
+      "image": "assets/photos/hooton-lodge-gig.jpg",
+      "aspectRatio": "742 / 831",
+      "caption": "Hooton Lodge Farm",
+      "alt": "Crowd at a live gig at Hooton Lodge Farm under moving lights",
+      "category": "Live & Festivals",
+      "source": "draft caption"
+    },
+    {
+      "order": 17,
+      "image": "assets/photos/svc-architectural-illuminations.jpg",
+      "aspectRatio": "472 / 636",
+      "caption": "Architectural lighting",
+      "alt": "Building façade illuminated in blue",
+      "category": "Community",
+      "source": "draft caption"
+    },
+    {
+      "order": 18,
+      "image": "assets/photos/awards-presenter.jpg",
+      "aspectRatio": "3 / 2",
+      "caption": "On stage",
+      "alt": "Presenter at a lectern on an awards stage",
+      "category": "Awards & Corporate",
+      "source": "draft caption"
+    },
+    {
+      "order": 19,
+      "image": "assets/photos/svc-conference-and-seminars.jpg",
+      "aspectRatio": "472 / 636",
+      "caption": "Conference",
+      "alt": "Conference hall with stage, screen and lighting rig",
+      "category": "Awards & Corporate",
+      "source": "draft caption"
+    },
+    {
+      "order": 20,
+      "image": "assets/photos/outdoor-stage-crowd.jpg",
+      "aspectRatio": "742 / 832",
+      "caption": "Outdoor stage",
+      "alt": "Crowd in front of an outdoor stage under coloured lights",
+      "category": "Live & Festivals",
+      "source": "draft caption"
+    },
+    {
+      "order": 21,
+      "image": "assets/photos/svc-charity.jpg",
+      "aspectRatio": "472 / 636",
+      "caption": "Charity gala",
+      "alt": "Gala dinner hall lit in purple",
+      "category": "Community",
+      "source": "draft caption"
+    },
+    {
+      "order": 22,
+      "image": "assets/photos/svc-exhibition-and-product-launches.jpg",
+      "aspectRatio": "472 / 636",
+      "caption": "Exhibition stand",
+      "alt": "Exhibition stand lit for a product showcase",
+      "category": "Awards & Corporate",
+      "source": "draft caption"
+    },
+    {
+      "order": 23,
+      "image": "assets/photos/svc-live-music.jpg",
+      "aspectRatio": "472 / 636",
+      "caption": "Marquee gig",
+      "alt": "Band performing in a marquee under moving lights",
+      "category": "Live & Festivals",
+      "source": "draft caption"
+    },
+    {
+      "order": 24,
+      "image": "assets/photos/svc-power-distribution.jpg",
+      "aspectRatio": "472 / 636",
+      "caption": "Power ready to go",
+      "alt": "Temporary power cabling laid out ready for install",
+      "category": "Behind the Scenes",
+      "source": "draft caption"
+    },
+    {
+      "order": 25,
+      "image": "assets/photos/svc-celebrity-meet-and-greets.jpg",
+      "aspectRatio": "472 / 636",
+      "caption": "Meet & greet",
+      "alt": "Theatre stage set up for a promotions event",
+      "category": "Awards & Corporate",
+      "source": "draft caption"
+    }
+  ],
+  "galleryCategories": [
+    "Awards & Corporate",
+    "Live & Festivals",
+    "Community",
+    "Behind the Scenes"
+  ]
+}

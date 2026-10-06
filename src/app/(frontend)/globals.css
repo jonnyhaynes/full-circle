@@ -1,0 +1,1159 @@
+@import "tailwindcss";
+
+/*
+ * Full Circle Event Production — design tokens.
+ * Taken from the approved handover (docs/fullcircle-handover/content/tokens.css).
+ *
+ * Defined directly in @theme with literal values: an `inline` block referencing
+ * its own token is self-referential and resolves to nothing, which silently
+ * breaks every rule that consumes it.
+ */
+@theme {
+  /* Surfaces, darkest to lightest. The page floats on `canvas`, hero and large
+     panels use `panel`, and cards sit a step lighter again. */
+  --color-canvas: #050505;
+  --color-panel: #0b0b0b;
+  --color-card: #0e0e0e;
+  --color-ink: #050505;
+  --color-ticket: #f4f4f1;
+
+  /* Foreground. `body` is always white on dark; `muted`/`subtle` are the two
+     supporting greys. Text on a green fill is always `accent-ink` (black). */
+  --color-body: #ffffff;
+  --color-muted: rgba(255, 255, 255, 0.72);
+  --color-subtle: rgba(255, 255, 255, 0.55);
+
+  /* Hairlines on dark. */
+  --color-line: rgba(255, 255, 255, 0.08);
+  --color-line-strong: rgba(255, 255, 255, 0.14);
+
+  /* The brand green is a hard requirement — it is the colour on the client's
+     live site and must not change. `accent-text` is kept as a distinct name so
+     a future light surface could darken it for AA without touching components. */
+  --color-accent: #05f60e;
+  --color-accent-ink: #050505;
+  --color-accent-text: #05f60e;
+  --color-accent-35: rgba(5, 246, 14, 0.35);
+  --color-accent-16: rgba(5, 246, 14, 0.16);
+  --color-highlight: #d6ffd8;
+  --color-error: #ff8a8a;
+
+  /* Type. Bebas for headlines and numbers, Jost for everything readable,
+     Mrs Saint Delafield for the one script line per hero, Comfortaa for the
+     logo wordmark only. All four are self-hosted by next/font. */
+  --font-display: var(--font-bebas), sans-serif;
+  --font-body: var(--font-jost), sans-serif;
+  --font-script: var(--font-mrs), cursive;
+  --font-logo: var(--font-comfortaa), sans-serif;
+
+  --radius-hero: 32px;
+  --radius-panel: 24px;
+  --radius-card: 20px;
+  --container-fc: 1320px;
+}
+
+@layer base {
+  html {
+    background-color: var(--color-canvas);
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  body {
+    background-color: var(--color-canvas);
+    color: var(--color-body);
+    font-family: var(--font-jost), system-ui, sans-serif;
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 1.65;
+    /* `clip`, not `hidden`: `overflow-x: hidden` would make the body a scroll
+       container and break `position: sticky` on the pinned timeline. */
+    overflow-x: clip;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-bebas), system-ui, sans-serif;
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: 1px;
+  }
+
+  h1 {
+    line-height: 0.84;
+    font-size: clamp(84px, 11vw, 172px);
+  }
+
+  h2 {
+    line-height: 0.9;
+    font-size: clamp(52px, 6vw, 88px);
+  }
+
+  h3 {
+    line-height: 0.95;
+    font-size: clamp(36px, 4vw, 56px);
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 200ms ease, border-color 200ms ease;
+  }
+
+  a:hover {
+    color: var(--color-accent);
+  }
+
+  ::selection {
+    background-color: var(--color-accent);
+    color: var(--color-accent-ink);
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--color-accent);
+    outline-offset: 3px;
+  }
+}
+
+/* ============================================================ primitives */
+
+.fc-container {
+  width: 100%;
+  max-width: 1320px;
+  margin-inline: auto;
+  padding-inline: 16px;
+}
+
+.fc-eyebrow {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+.fc-script {
+  font-family: var(--font-mrs), cursive;
+  font-weight: 400;
+  color: var(--color-accent);
+  text-shadow: 0 0 34px var(--color-accent-35);
+  white-space: nowrap;
+}
+
+/*
+ * The traced hero script line, drawn on as if written by hand. Each pen stroke
+ * is its own <path> with `pathLength="1"`, and the component gives it a duration
+ * proportional to its length and a delay for everything drawn before it — so the
+ * line writes itself left to right at a constant pen speed rather than appearing
+ * all at once.
+ */
+.fc-script-path {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 0;
+  filter: drop-shadow(0 0 6px var(--color-accent-35));
+  animation-name: fc-script-write;
+  animation-timing-function: linear;
+  animation-fill-mode: both;
+}
+
+@keyframes fc-script-write {
+  from {
+    stroke-dashoffset: 1;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Shown finished, with no draw-on. */
+@media (prefers-reduced-motion: reduce) {
+  .fc-script-path {
+    animation: none;
+  }
+}
+
+.fc-panel {
+  background: var(--color-panel);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-panel);
+}
+
+.fc-card {
+  background: var(--color-card);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-card);
+  transition: transform 0.4s ease, border-color 0.4s ease;
+}
+
+.fc-card:hover {
+  transform: translateY(-6px);
+  border-color: color-mix(in srgb, var(--color-accent) 50%, transparent);
+}
+
+/*
+ * Elements that reveal as they scroll into view (see ScrollIn.tsx). The hidden
+ * state is CSS, so the no-JS fallback in the layout — which reveals anything with
+ * `data-reveal` — still shows them.
+ */
+.fc-scroll-in {
+  opacity: 0;
+}
+
+.fc-scroll-in[data-shown='true'][data-variant='bounce'] {
+  animation: fc-card-pop 700ms cubic-bezier(0.22, 1, 0.36, 1) var(--fc-scroll-delay, 0ms) both;
+}
+
+.fc-scroll-in[data-shown='true'][data-variant='rise'] {
+  animation: fc-rise-in 600ms cubic-bezier(0.22, 1, 0.36, 1) var(--fc-scroll-delay, 0ms) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fc-scroll-in {
+    opacity: 1;
+  }
+}
+
+/* ============================================================ buttons */
+
+.fc-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 60px;
+  padding-inline: 32px;
+  border-radius: 999px;
+  border: none;
+  background: var(--color-accent);
+  color: var(--color-accent-ink);
+  font-family: var(--font-jost), sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, color 0.2s ease;
+}
+
+.fc-btn:hover {
+  color: var(--color-accent-ink);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px -8px color-mix(in srgb, var(--color-accent) 70%, transparent);
+}
+
+.fc-btn-sm {
+  min-height: 50px;
+  padding-inline: 26px;
+  font-size: 15px;
+}
+
+/* Uppercase text link with a green underline. */
+.fc-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--color-body);
+  border-bottom: 2px solid var(--color-accent);
+  transition: color 0.2s ease;
+}
+
+.fc-link:hover {
+  color: var(--color-accent);
+}
+
+/* Circle + label secondary button (play icon, "Come backstage"). */
+.fc-play {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  min-height: 60px;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--color-body);
+}
+
+.fc-play-circle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  flex: none;
+  transition: border-color 0.2s ease;
+}
+
+.fc-play:hover {
+  color: var(--color-accent);
+}
+
+.fc-play:hover .fc-play-circle {
+  border-color: var(--color-accent);
+}
+
+/* ============================================================ hero banner */
+
+.fc-hero {
+  position: relative;
+  max-width: 1360px;
+  margin-inline: auto;
+  border-radius: var(--radius-hero);
+  border: 1px solid var(--color-line);
+  background: var(--color-panel);
+  overflow: hidden;
+  padding: 28px clamp(20px, 3.5vw, 48px) clamp(48px, 6vw, 80px);
+  display: flex;
+  flex-direction: column;
+}
+
+.fc-hero-photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform-origin: 60% 50%;
+  /* The entrance zoom, then a slow Ken Burns drift once it has settled. The
+     drift starts at scale 1 so it takes over from the entrance without a jump —
+     and so reduced motion (which ends both) leaves the photo unscaled. */
+  animation:
+    fc-bannerzoom 1.8s ease both,
+    fc-kenburns 26s ease-in-out 1.8s infinite alternate;
+  will-change: transform;
+}
+
+.fc-hero-scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(11, 11, 11, 0.97) 0%,
+    rgba(11, 11, 11, 0.85) 40%,
+    rgba(11, 11, 11, 0.3) 75%,
+    rgba(11, 11, 11, 0.2) 100%
+  );
+}
+
+.fc-hero-vignette {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(11, 11, 11, 0.75) 0%,
+    rgba(11, 11, 11, 0) 22%,
+    rgba(11, 11, 11, 0) 70%,
+    rgba(11, 11, 11, 0.9) 100%
+  );
+}
+
+/*
+ * The home hero headline sizes against its own copy column rather than the
+ * viewport, and each line is held on one line. The column is capped at 760px,
+ * so a viewport-based size overflows it and the two display lines wrap to four.
+ * 18.5cqw is just under the width of the longest line ("to completion", ~4.84em)
+ * so it always fits on one line. Inner-page heroes keep the viewport-based size.
+ */
+.fc-hero-copy {
+  container-type: inline-size;
+}
+
+/* Each display line is its own line, on every hero. */
+.fc-hero-title > span {
+  display: block;
+}
+
+/* On the home hero, also hold each line on one line and fit it to the column. */
+.fc-hero-title--home {
+  font-size: clamp(40px, 18.5cqw, 172px);
+}
+
+.fc-hero-title--home > span {
+  white-space: nowrap;
+}
+
+/* Stage beams hanging from the top of the hero — two green lights. */
+.fc-beam-1,
+.fc-beam-2 {
+  position: absolute;
+  top: -80px;
+  transform-origin: top center;
+  pointer-events: none;
+}
+
+.fc-beam-1 {
+  left: 60%;
+  width: 160px;
+  height: 820px;
+  background: linear-gradient(to bottom, var(--color-accent-35), rgba(0, 0, 0, 0) 80%);
+  filter: blur(24px);
+  animation: fc-sway 8s ease-in-out infinite;
+}
+
+.fc-beam-2 {
+  left: 78%;
+  width: 110px;
+  height: 760px;
+  background: linear-gradient(to bottom, rgba(5, 246, 14, 0.22), rgba(0, 0, 0, 0) 75%);
+  filter: blur(28px);
+  animation: fc-sway2 10s ease-in-out infinite;
+}
+
+/*
+ * A slow "Ken Burns" drift for the full-bleed photos in the closing call-to-
+ * action panels. The panel clips it, so the image stays framed while it creeps.
+ * Composited (transform only) so it costs nothing to run. Fill mode is left at
+ * its default so reduced motion ends at, and stays at, the unscaled image.
+ */
+.fc-kenburns {
+  transform-origin: 60% 50%;
+  animation: fc-kenburns 26s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+/* ============================================================ the ring */
+
+/* A stack of three layers. The circle is always complete — no gap. */
+.fc-ring {
+  position: absolute;
+  width: 780px;
+  height: 780px;
+  pointer-events: none;
+}
+
+.fc-ring-dash,
+.fc-ring-main,
+.fc-ring-dot {
+  position: absolute;
+  border-radius: 50%;
+}
+
+.fc-ring-dash {
+  inset: 0;
+  border: 1px dashed rgba(255, 255, 255, 0.25);
+  animation: fc-spin 60s linear infinite;
+}
+
+.fc-ring-main {
+  inset: 40px;
+  background: conic-gradient(
+    from 0deg,
+    var(--color-accent) 0deg 250deg,
+    var(--color-highlight) 300deg,
+    var(--color-accent) 330deg 360deg
+  );
+  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 9px), #000 calc(100% - 8px));
+  mask: radial-gradient(farthest-side, transparent calc(100% - 9px), #000 calc(100% - 8px));
+  filter: drop-shadow(0 0 20px var(--color-accent));
+  animation: fc-spin-rev 34s linear infinite;
+}
+
+.fc-ring-dot {
+  inset: 20px;
+  animation: fc-spin 18s linear infinite;
+}
+
+.fc-ring-dot span {
+  position: absolute;
+  top: -7px;
+  left: 50%;
+  width: 14px;
+  height: 14px;
+  margin-left: -7px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 0 20px #fff;
+}
+
+/* Small decorative ring used as a bullet or accent. */
+.fc-bullet {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  flex: none;
+}
+
+/* ============================================================ services */
+
+.fc-svc {
+  position: relative;
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  aspect-ratio: 472 / 600;
+  background: #141414;
+  border: 1px solid var(--color-line);
+  transition: transform 0.45s ease, border-color 0.45s ease;
+}
+
+.fc-svc img {
+  transition: transform 1s ease, filter 0.6s ease;
+}
+
+.fc-svc-body {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.6s cubic-bezier(0.65, 0, 0.35, 1), opacity 0.5s ease;
+}
+
+.fc-svc:hover,
+.fc-svc:focus-within {
+  transform: translateY(-6px);
+  border-color: color-mix(in srgb, var(--color-accent) 60%, transparent);
+}
+
+.fc-svc:hover img {
+  transform: scale(1.07);
+  filter: brightness(0.55);
+}
+
+.fc-svc:hover .fc-svc-body,
+.fc-svc:focus-within .fc-svc-body {
+  max-height: 260px;
+  opacity: 1;
+}
+
+.fc-svc-ring {
+  transition: background 0.3s ease;
+}
+
+.fc-svc:hover .fc-svc-ring {
+  background: var(--color-accent);
+}
+
+/* ============================================================ filters */
+
+.fc-filter {
+  min-height: 44px;
+  padding: 0;
+  border: none;
+  border-bottom: 2px solid transparent;
+  background: transparent;
+  cursor: pointer;
+  font-family: var(--font-jost), sans-serif;
+  font-size: 15px;
+  letter-spacing: 1.5px;
+  color: var(--color-subtle);
+  transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+.fc-filter[aria-selected="true"] {
+  color: var(--color-body);
+  border-bottom-color: var(--color-accent);
+}
+
+.fc-filter:hover {
+  color: var(--color-body);
+}
+
+.fc-filter-count {
+  font-size: 12px;
+  color: var(--color-accent);
+}
+
+/* ============================================================ disciplines */
+
+.fc-disc {
+  transition: transform 0.4s ease, border-color 0.4s ease;
+}
+
+.fc-disc:hover {
+  transform: translateY(-6px);
+  border-color: color-mix(in srgb, var(--color-accent) 50%, transparent);
+}
+
+/* ============================================================ timeline */
+
+.fc-steps {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) 120px;
+}
+
+/*
+ * The "How we work" section pins while the circle draws: the wrapper is taller
+ * than the viewport and the inner block sticks to the top, so scrolling advances
+ * the draw instead of moving the page on. It releases once the circle is filled.
+ */
+.fc-timeline-pin {
+  height: 200vh;
+}
+
+.fc-timeline-sticky {
+  position: sticky;
+  top: 0;
+  display: flex;
+  min-height: 100vh;
+  align-items: center;
+}
+
+/* No pinning on phones, or when the visitor prefers reduced motion. */
+@media (max-width: 900px), (prefers-reduced-motion: reduce) {
+  .fc-timeline-pin {
+    height: auto;
+  }
+  .fc-timeline-sticky {
+    position: static;
+    display: block;
+    min-height: 0;
+  }
+}
+
+@media (max-width: 900px) {
+  .fc-steps {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    row-gap: 48px;
+  }
+  .fc-track,
+  .fc-endring {
+    display: none !important;
+  }
+}
+
+/* ============================================================ gallery */
+
+.fc-masonry {
+  columns: 4 280px;
+  column-gap: 16px;
+}
+
+.fc-masonry > * {
+  break-inside: avoid;
+}
+
+.fc-tile {
+  position: relative;
+  display: block;
+  width: 100%;
+  margin: 0 0 16px;
+  padding: 0;
+  border: 1px solid var(--color-line);
+  border-radius: 18px;
+  overflow: hidden;
+  background: #141414;
+  cursor: zoom-in;
+  transition: border-color 0.4s ease;
+}
+
+.fc-tile img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  transition: transform 1s ease;
+}
+
+.fc-tile-cap {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.fc-tile:hover,
+.fc-tile:focus-visible {
+  border-color: color-mix(in srgb, var(--color-accent) 60%, transparent);
+}
+
+.fc-tile:hover img {
+  transform: scale(1.05);
+}
+
+.fc-tile:hover .fc-tile-cap,
+.fc-tile:focus-visible .fc-tile-cap {
+  opacity: 1;
+  transform: none;
+}
+
+@media (hover: none) {
+  .fc-svc-body {
+    max-height: 260px;
+    opacity: 1;
+  }
+  .fc-tile-cap {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ============================================================ form */
+
+.fc-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+  font-size: 14px;
+  letter-spacing: 1px;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.fc-field input,
+.fc-field textarea {
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 52px;
+  padding: 14px 16px;
+  border-radius: 12px;
+  border: 1px solid var(--color-line-strong);
+  background: rgba(255, 255, 255, 0.04);
+  color: #fff;
+  font-family: var(--font-jost), sans-serif;
+  font-size: 16px;
+  letter-spacing: 0;
+  outline: none;
+  transition: border-color 0.25s ease, background 0.25s ease;
+  color-scheme: dark;
+}
+
+.fc-field textarea {
+  resize: vertical;
+  min-height: 140px;
+}
+
+.fc-field input:focus,
+.fc-field textarea:focus {
+  border-color: var(--color-accent);
+  background: var(--color-accent-16);
+}
+
+.fc-field input::placeholder,
+.fc-field textarea::placeholder {
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.fc-field[data-invalid="true"] input,
+.fc-field[data-invalid="true"] textarea {
+  border-color: var(--color-error);
+}
+
+.fc-pill {
+  min-height: 44px;
+  padding: 0 16px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-family: var(--font-jost), sans-serif;
+  font-size: 14px;
+  border: 1px solid var(--color-line-strong);
+  background: rgba(255, 255, 255, 0.04);
+  color: #fff;
+  transition: all 0.25s ease;
+}
+
+.fc-pill[aria-pressed="true"] {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: var(--color-accent-ink);
+}
+
+.fc-row {
+  transition: color 0.25s ease;
+}
+
+.fc-row:hover {
+  color: var(--color-accent);
+}
+
+.fc-row .fc-row-ring {
+  transition: background 0.25s ease;
+}
+
+.fc-row:hover .fc-row-ring {
+  background: var(--color-accent-16);
+}
+
+.fc-social {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #fff;
+  transition: border-color 0.25s ease, color 0.25s ease, transform 0.25s ease;
+}
+
+.fc-social:hover {
+  color: var(--color-accent);
+  border-color: var(--color-accent);
+  transform: translateY(-3px);
+}
+
+/* Event-type list rows (About). */
+.fc-type {
+  transition: color 0.3s ease, padding-left 0.3s ease;
+}
+
+.fc-type:hover {
+  color: var(--color-accent);
+  padding-left: 10px;
+}
+
+/* ============================================================ keyframes */
+
+@keyframes fc-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes fc-spin-rev {
+  to {
+    transform: rotate(-360deg);
+  }
+}
+@keyframes fc-draw {
+  from {
+    stroke-dashoffset: 1288;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes fc-draw-sm {
+  from {
+    stroke-dashoffset: 113.1;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes fc-glow {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 6px rgba(5, 246, 14, 0.5));
+  }
+  50% {
+    filter: drop-shadow(0 0 22px rgba(5, 246, 14, 0.9));
+  }
+}
+/* The logo ring is much smaller than the decorative rings, so it takes a
+   proportionally tighter glow. */
+@keyframes fc-logo-glow {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 3px rgba(5, 246, 14, 0.55));
+  }
+  50% {
+    filter: drop-shadow(0 0 9px rgba(5, 246, 14, 0.95));
+  }
+}
+@keyframes fc-marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+@keyframes fc-rise {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes fc-zoom {
+  from {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes fc-fade {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes fc-float {
+  0%,
+  100% {
+    transform: rotate(-5deg) translateY(0);
+  }
+  50% {
+    transform: rotate(-5deg) translateY(-8px);
+  }
+}
+@keyframes fc-float-4 {
+  0%,
+  100% {
+    transform: rotate(-4deg) translateY(0);
+  }
+  50% {
+    transform: rotate(-4deg) translateY(-8px);
+  }
+}
+@keyframes fc-sway {
+  0%,
+  100% {
+    transform: rotate(-16deg);
+  }
+  50% {
+    transform: rotate(12deg);
+  }
+}
+@keyframes fc-sway2 {
+  0%,
+  100% {
+    transform: rotate(14deg);
+  }
+  50% {
+    transform: rotate(-10deg);
+  }
+}
+@keyframes fc-bannerzoom {
+  from {
+    opacity: 0;
+    transform: scale(1.08);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes fc-kenburns {
+  from {
+    transform: scale(1) translate3d(0, 0, 0);
+  }
+  to {
+    transform: scale(1.16) translate3d(-1.5%, -1.5%, 0);
+  }
+}
+@keyframes fc-card-pop {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) scale(0.96);
+  }
+  55% {
+    opacity: 1;
+    transform: translateY(-7px) scale(1.015);
+  }
+  78% {
+    transform: translateY(3px) scale(0.995);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes fc-rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+/*
+ * The "How we work" timeline is driven by scroll (see HowWeWork.tsx) rather than
+ * a loop. With reduced motion it is simply shown finished.
+ */
+@media (prefers-reduced-motion: reduce) {
+  .fc-timeline {
+    --fc-progress: 1;
+    --fc-ring: 1;
+    --fc-end: 1;
+    --n0: 1;
+    --n1: 1;
+    --n2: 1;
+    --n3: 1;
+  }
+}
+@keyframes fc-ticketin {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.85);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes fc-tping {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+@keyframes fc-mergeL {
+  0%,
+  12% {
+    transform: translateX(-46%);
+  }
+  42%,
+  84% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-46%);
+  }
+}
+@keyframes fc-mergeR {
+  0%,
+  12% {
+    transform: translateX(46%);
+  }
+  42%,
+  84% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(46%);
+  }
+}
+@keyframes fc-merge-c {
+  0%,
+  12%,
+  100% {
+    stroke: rgba(255, 255, 255, 0.55);
+  }
+  42%,
+  84% {
+    stroke: #05f60e;
+  }
+}
+@keyframes fc-mergeTxt {
+  0%,
+  40% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  50%,
+  84% {
+    opacity: 1;
+    transform: none;
+  }
+  94%,
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes fc-mergeTag {
+  0%,
+  30% {
+    opacity: 1;
+    visibility: visible;
+  }
+  40%,
+  88% {
+    opacity: 0;
+    visibility: hidden;
+  }
+  100% {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+@keyframes fc-ping {
+  0% {
+    transform: scale(0.15);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+@keyframes fc-blink {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(5, 246, 14, 0.6);
+  }
+  50% {
+    box-shadow: 0 0 0 10px rgba(5, 246, 14, 0);
+  }
+}
+@keyframes fc-eq {
+  0%,
+  100% {
+    transform: scaleY(0.25);
+  }
+  50% {
+    transform: scaleY(1);
+  }
+}
+@keyframes fc-beam {
+  0%,
+  100% {
+    opacity: 0.35;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+@keyframes fc-truss {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+@keyframes fc-ringdraw {
+  from {
+    stroke-dashoffset: 377;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes fc-fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fc-zoomin {
+  from {
+    opacity: 0;
+    transform: scale(0.94);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ============================================================ reduced motion */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

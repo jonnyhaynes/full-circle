@@ -1,0 +1,459 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<title>Full Circle Event Production — Homepage</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Comfortaa:wght@400;500;600&amp;family=Jost:wght@300;400;500;600&amp;family=Mrs+Saint+Delafield&amp;display=swap">
+<style>
+body{margin:0;background:#050505}
+a{color:#ffffff;text-decoration:none}a:hover{color:#05F60E}
+@keyframes fc-spin{to{transform:rotate(360deg)}}
+@keyframes fc-spin-rev{to{transform:rotate(-360deg)}}
+@keyframes fc-draw{from{stroke-dashoffset:1288}to{stroke-dashoffset:0}}
+@keyframes fc-glow{0%,100%{filter:drop-shadow(0 0 6px rgba(5,246,14,.5))}50%{filter:drop-shadow(0 0 22px rgba(5,246,14,.9))}}
+@keyframes fc-drift1{0%{transform:translate(0,0) scale(1)}100%{transform:translate(120px,80px) scale(1.25)}}
+@keyframes fc-drift2{0%{transform:translate(0,0) scale(1.1)}100%{transform:translate(-140px,-60px) scale(.9)}}
+@keyframes fc-marquee{to{transform:translateX(-50%)}}
+@keyframes fc-rise{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
+@keyframes fc-zoom{from{opacity:0;transform:scale(.85)}to{opacity:1;transform:none}}
+@keyframes fc-float{0%,100%{transform:rotate(-5deg) translateY(0)}50%{transform:rotate(-5deg) translateY(-8px)}}
+@keyframes fc-fade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.fc-card{transition:transform .4s ease,border-color .4s ease}
+.fc-card:hover{transform:translateY(-6px);border-color:rgba(5,246,14,.5)!important}
+.fc-card img{transition:transform .8s ease}
+.fc-card:hover img{transform:scale(1.06)}
+.fc-btn{transition:transform .2s ease,box-shadow .2s ease}
+.fc-btn:hover{color:#050505;transform:translateY(-2px);box-shadow:0 12px 40px -8px rgba(5,246,14,.7)}
+.fc-link:hover{color:#05F60E!important}
+.fc-disc:hover .fc-disc-ring{background:#05F60E!important}
+@keyframes fc-sway{0%,100%{transform:rotate(-16deg)}50%{transform:rotate(12deg)}}
+@keyframes fc-sway2{0%,100%{transform:rotate(14deg)}50%{transform:rotate(-10deg)}}
+@keyframes fc-draw-sm{from{stroke-dashoffset:113.1}to{stroke-dashoffset:0}}
+@keyframes fc-line{0%{transform:scaleX(0);opacity:1}50%{transform:scaleX(1);opacity:1}88%{transform:scaleX(1);opacity:1}96%{transform:scaleX(1);opacity:0}100%{transform:scaleX(0);opacity:0}}
+@keyframes fc-node0{0%{background:#050505;box-shadow:none}2%,88%{background:#05F60E;box-shadow:0 0 22px rgba(5,246,14,.7)}96%,100%{background:#050505;box-shadow:none}}
+@keyframes fc-node1{0%,12%{background:#050505;box-shadow:none}14%,88%{background:#05F60E;box-shadow:0 0 22px rgba(5,246,14,.7)}96%,100%{background:#050505;box-shadow:none}}
+@keyframes fc-node2{0%,24%{background:#050505;box-shadow:none}26%,88%{background:#05F60E;box-shadow:0 0 22px rgba(5,246,14,.7)}96%,100%{background:#050505;box-shadow:none}}
+@keyframes fc-node3{0%,36%{background:#050505;box-shadow:none}38%,88%{background:#05F60E;box-shadow:0 0 22px rgba(5,246,14,.7)}96%,100%{background:#050505;box-shadow:none}}
+@keyframes fc-close{0%,50%{stroke-dashoffset:326.7;opacity:1}68%,88%{stroke-dashoffset:0;opacity:1}96%{stroke-dashoffset:0;opacity:0}100%{stroke-dashoffset:326.7;opacity:0}}
+@keyframes fc-endtext{0%,60%{opacity:.25;color:#ffffff}70%,88%{opacity:1;color:#05F60E}96%,100%{opacity:.25;color:#ffffff}}
+.fc-steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr)) 120px}
+@media (max-width:900px){.fc-steps{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:48px}.fc-track,.fc-endring{display:none!important}}
+@keyframes fc-bannerzoom{from{opacity:0;transform:scale(1.08)}to{opacity:1;transform:none}}
+@keyframes fc-ticketin{from{opacity:0;transform:translateY(16px) scale(.85)}to{opacity:1;transform:none}}
+@keyframes fc-tping{0%{transform:scale(.9);opacity:.9}100%{transform:scale(1.5);opacity:0}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</helmet>
+
+<div id="top" style="background: #050505; color: #ffffff; font-family: 'Jost', sans-serif; overflow: hidden">
+
+<!-- ================= HERO ================= -->
+<div style="padding: 20px 16px 0">
+<section style="position: relative; max-width: 1360px; margin: 0 auto; border-radius: 32px; border: 1px solid rgba(255,255,255,0.08); background: #0b0b0b; overflow: hidden; min-height: 760px; padding: 28px clamp(20px, 3.5vw, 48px) clamp(40px, 5vw, 64px); display: flex; flex-direction: column">
+  <div aria-hidden="true" style="position: absolute; inset: 0; pointer-events: none">
+    <img src="../assets/photos/outdoor-stage-led-screens.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 60% 45%; animation: fc-bannerzoom 1.8s ease both">
+    <div style="position: absolute; inset: 0; background: linear-gradient(90deg, rgba(11,11,11,0.97) 0%, rgba(11,11,11,0.85) 38%, rgba(11,11,11,0.3) 72%, rgba(11,11,11,0.15) 100%)"></div>
+    <div style="position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(11,11,11,0.8) 0%, rgba(11,11,11,0) 22%, rgba(11,11,11,0) 70%, rgba(11,11,11,0.9) 100%)"></div>
+  </div>
+  <div aria-hidden="true" style="position: absolute; right: -330px; top: 50%; margin-top: -360px; width: 820px; height: 820px; pointer-events: none">
+      <div style="position: absolute; inset: 0; border-radius: 50%; border: 1px dashed rgba(255,255,255,0.22); animation: fc-spin 60s linear infinite"></div>
+      <div style="position: absolute; inset: 42px; border-radius: 50%; background: conic-gradient(from 0deg, {{accent}} 0deg 250deg, #d6ffd8 300deg, {{accent}} 330deg 360deg); -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 10px), #000 calc(100% - 9px)); mask: radial-gradient(farthest-side, transparent calc(100% - 10px), #000 calc(100% - 9px)); filter: drop-shadow(0 0 20px {{accent}}); animation: fc-spin-rev 30s linear infinite"></div>
+      <div style="position: absolute; inset: 21px; border-radius: 50%; animation: fc-spin 18s linear infinite"><span style="position: absolute; top: -7px; left: 50%; width: 14px; height: 14px; margin-left: -7px; border-radius: 50%; background: #ffffff; box-shadow: 0 0 20px #ffffff"></span></div>
+    </div>
+  <div aria-hidden="true" style="position: absolute; inset: 0; pointer-events: none">
+    <div style="position: absolute; top: -80px; left: 58%; width: 170px; height: 920px; transform-origin: top center; background: linear-gradient(to bottom, {{glow35}}, rgba(0,0,0,0) 80%); filter: blur(24px); animation: fc-sway 8s ease-in-out infinite"></div>
+    <div style="position: absolute; top: -80px; left: 76%; width: 120px; height: 820px; transform-origin: top center; background: linear-gradient(to bottom, rgba(255,255,255,0.14), rgba(0,0,0,0) 75%); filter: blur(28px); animation: fc-sway2 10s ease-in-out infinite"></div>
+  </div>
+  <!-- NAV -->
+  <header style="position: relative; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px">
+    <a href="#top" aria-label="Full Circle Event Production home" style="display: flex; align-items: center; gap: 12px">
+      <svg width="50" height="50" viewBox="0 0 54 54" aria-hidden="true"><circle cx="27" cy="27" r="23.5" fill="none" stroke="{{accent}}" stroke-width="6"></circle></svg>
+      <span style="display: flex; flex-direction: column; align-items: flex-end; font-family: 'Comfortaa', sans-serif; line-height: 1; color: #ffffff">
+        <span style="font-size: 27px; font-weight: 500; letter-spacing: -0.3px">Full Circle</span>
+        <span style="font-size: 13.5px; font-weight: 500; margin-top: 5px">Event Pr<span style="color: {{accent}}">o</span>ducti<span style="color: {{accent}}">o</span>n</span>
+      </span>
+    </a>
+    <nav aria-label="Main" style="display: flex; flex-wrap: wrap; gap: clamp(16px, 3vw, 40px); font-size: 16px">
+      <a class="fc-link" href="About.dc.html" style="color: rgba(255,255,255,0.82)">About Us</a>
+      <a class="fc-link" href="Services.dc.html" style="color: rgba(255,255,255,0.82)">Services</a>
+      <a class="fc-link" href="Backstage.dc.html" style="color: rgba(255,255,255,0.82)">Backstage</a>
+      <a class="fc-link" href="Contact.dc.html" style="color: rgba(255,255,255,0.82)">Contact Us</a>
+    </nav>
+    <a class="fc-btn" href="Contact.dc.html" style="display: inline-flex; align-items: center; gap: 10px; min-height: 50px; padding: 0 26px; border-radius: 999px; background: {{accent}}; color: #050505; font-weight: 600; font-size: 15px; letter-spacing: 1px">GET A QUOTE</a>
+  </header>
+
+  <div style="position: relative; flex: 1; display: flex; flex-direction: column; justify-content: center; max-width: 760px; padding-top: clamp(48px, 7vw, 96px); animation: fc-rise 1s ease both">
+      <h1 style="margin: 0; font-family: 'Bebas Neue', sans-serif; font-weight: 400; line-height: 0.84; font-size: clamp(84px, 11vw, 172px); letter-spacing: 1px; color: #ffffff; text-shadow: 0 4px 40px rgba(0,0,0,0.6)">
+        <span style="display: block">From concept</span>
+        <span style="display: block">to completion</span>
+      </h1>
+      <p aria-hidden="true" style="position: relative; margin: clamp(-46px, -3.4vw, -24px) 0 0 clamp(8px, 6vw, 96px); font-family: 'Mrs Saint Delafield', cursive; font-size: clamp(64px, 7.4vw, 118px); line-height: 1; color: {{accent}}; transform: rotate(-5deg); transform-origin: left center; text-shadow: 0 0 34px {{glow35}}; white-space: nowrap; animation: fc-fade 1.2s .6s ease both">Bring it full circle</p>
+      <p style="margin: 18px 0 0; max-width: 500px; font-size: 19px; line-height: 1.6; font-weight: 300; color: rgba(255,255,255,0.85)">Sheffield’s AV hire and event production team. Lighting, sound, staging and technical support for corporate events, festivals, live music, sport and award ceremonies.</p>
+      <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-start; gap: 28px; margin-top: 36px">
+        <a class="fc-btn" href="Contact.dc.html" style="display: inline-flex; align-items: center; gap: 12px; min-height: 60px; padding: 0 32px; border-radius: 999px; background: {{accent}}; color: #050505; font-weight: 600; font-size: 16px; letter-spacing: 1px">ENQUIRE HERE
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#050505" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+        </a>
+        <a class="fc-link" href="Backstage.dc.html" style="display: inline-flex; align-items: center; gap: 14px; min-height: 60px; font-size: 16px; font-weight: 500; letter-spacing: 1px; color: #ffffff">
+          <span style="display: flex; align-items: center; justify-content: center; width: 58px; height: 58px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.4)">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="#ffffff" aria-hidden="true"><path d="M7 4.5v15l12-7.5z"></path></svg>
+          </span>
+          COME BACKSTAGE
+        </a>
+      </div>
+  </div>
+</section>
+</div>
+
+<div style="height: 28px"></div>
+
+<!-- ================= EVENT TYPES MARQUEE ================= -->
+<div aria-hidden="true" style="padding: 20px 0; border-top: 1px solid rgba(255,255,255,0.08); border-bottom: 1px solid rgba(255,255,255,0.08); overflow: hidden; white-space: nowrap; background: #080808">
+  <div style="display: inline-flex; animation: fc-marquee 40s linear infinite">
+    <sc-for list="{{marquee}}" as="m" hint-placeholder-count="14">
+      <span style="display: inline-flex; align-items: center; gap: 32px; padding-right: 32px; font-family: 'Bebas Neue', sans-serif; font-size: 52px; line-height: 1; letter-spacing: 1px; color: {{m.c}}; -webkit-text-stroke: {{m.stroke}}">
+        {{m.label}}
+        <svg width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="{{accent}}" stroke-width="3.5"></circle></svg>
+      </span>
+    </sc-for>
+  </div>
+</div>
+
+<div style="padding: 0 16px">
+<div style="max-width: 1320px; margin: 0 auto">
+
+<!-- ================= HOW WE WORK (timeline) ================= -->
+<section id="process" style="padding: clamp(72px, 9vw, 120px) 0 0">
+  <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 24px">
+    <div>
+      <div style="font-size: 14px; font-weight: 600; letter-spacing: 3px; color: {{accent}}">HOW WE WORK</div>
+      <h2 style="margin: 12px 0 0; font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: clamp(52px, 6vw, 88px); line-height: 0.9">Every event comes full circle</h2>
+    </div>
+    <p style="margin: 0; max-width: 420px; font-size: 18px; line-height: 1.6; font-weight: 300; color: rgba(255,255,255,0.75)">We work closely with you at every stage, tailoring the production to bring your vision to life.</p>
+  </div>
+
+  <div class="fc-timeline" style="position: relative; margin-top: 64px">
+    <!-- track + drawing line -->
+    <div class="fc-track" aria-hidden="true" style="position: absolute; top: 21px; left: 22px; right: 120px; height: 2px; background: rgba(255,255,255,0.1)">
+      <div style="height: 100%; background: {{accent}}; box-shadow: 0 0 14px {{accent}}; transform-origin: left center; animation: fc-line 9s linear infinite"></div>
+    </div>
+
+    <ol class="fc-steps" style="position: relative; list-style: none; margin: 0; padding: 0">
+      <sc-for list="{{steps}}" as="s" hint-placeholder-count="4">
+        <li style="min-width: 0; padding-right: 28px">
+          <span aria-hidden="true" style="display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; border: 3px solid {{accent}}; background: #050505; animation: {{s.anim}} 9s linear infinite"></span>
+          <div style="margin-top: 26px; font-size: 13px; letter-spacing: 2px; color: rgba(255,255,255,0.5)">{{s.num}}</div>
+          <h3 style="margin: 6px 0 0; font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: 44px; line-height: 1">{{s.title}}</h3>
+          <p style="margin: 12px 0 0; font-size: 16px; line-height: 1.6; color: rgba(255,255,255,0.72)">{{s.body}}</p>
+        </li>
+      </sc-for>
+      <li aria-hidden="true" class="fc-endring" style="display: flex; flex-direction: column; align-items: center">
+        <div style="position: relative; width: 120px; height: 120px; margin-top: -38px">
+          <svg viewBox="0 0 120 120" style="position: absolute; inset: 0; width: 100%; height: 100%; transform: rotate(180deg)">
+            <circle cx="60" cy="60" r="52" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="6"></circle>
+            <circle cx="60" cy="60" r="52" fill="none" stroke="{{accent}}" stroke-width="6" stroke-linecap="round" stroke-dasharray="326.7" style="animation: fc-close 9s ease infinite; filter: drop-shadow(0 0 10px {{glow35}})"></circle>
+          </svg>
+          <div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; text-align: center; font-family: 'Bebas Neue', sans-serif; font-size: 24px; line-height: 0.95; animation: fc-endtext 9s ease infinite">Full<br>circle</div>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+<!-- ================= SERVICES ================= -->
+<section id="services" style="padding: clamp(72px, 9vw, 120px) 0 0">
+  <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 24px">
+    <div>
+      <div style="font-size: 14px; font-weight: 600; letter-spacing: 3px; color: {{accent}}">OUR SERVICES</div>
+      <h2 style="margin: 12px 0 0; font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: clamp(56px, 7vw, 104px); line-height: 0.9">Unique offerings</h2>
+    </div>
+    <p style="margin: 0; max-width: 460px; font-size: 18px; line-height: 1.6; font-weight: 300; color: rgba(255,255,255,0.75)">Experienced technicians delivering AV hire, staging, lighting, sound and video for award ceremonies, conferences, corporate events, festivals and live productions.</p>
+  </div>
+
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 48px">
+    <sc-for list="{{services}}" as="s" hint-placeholder-count="3">
+      <article class="fc-card" style="position: relative; border-radius: 20px; overflow: hidden; background: #0e0e0e; border: 1px solid rgba(255,255,255,0.08); display: flex; flex-direction: column">
+        <div style="position: relative; height: 320px; overflow: hidden; background: #141414">
+          <img src="{{s.img}}" alt="{{s.alt}}" style="width: 100%; height: 100%; object-fit: cover; object-position: {{s.pos}}; display: block">
+          <div style="position: absolute; inset: 0; background: linear-gradient(to top, #0e0e0e 0%, rgba(14,14,14,0) 55%)"></div>
+          <span style="position: absolute; top: 18px; left: 18px; display: flex; align-items: center; justify-content: center; width: 52px; height: 52px; border-radius: 50%; border: 3px solid {{accent}}; font-family: 'Bebas Neue', sans-serif; font-size: 22px; background: rgba(5,5,5,0.6)">{{s.num}}</span>
+        </div>
+        <div style="padding: 4px 26px 28px; display: flex; flex-direction: column; gap: 14px; flex: 1">
+          <h3 style="margin: 0; font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: 54px; line-height: 0.9">{{s.title}}</h3>
+          <p style="margin: 0; font-size: 16px; line-height: 1.55; color: rgba(255,255,255,0.72)">{{s.body}}</p>
+          <div style="display: flex; flex-wrap: wrap; gap: 6px 18px; margin-top: auto; padding-top: 10px; font-size: 14px; color: rgba(255,255,255,0.85)">
+            <sc-for list="{{s.tags}}" as="t" hint-placeholder-count="3">
+              <span style="display: inline-flex; align-items: center; gap: 8px"><span style="width: 6px; height: 6px; border-radius: 50%; background: {{accent}}"></span>{{t}}</span>
+            </sc-for>
+          </div>
+        </div>
+      </article>
+    </sc-for>
+  </div>
+</section>
+
+<!-- ================= ABOUT ================= -->
+<section id="about" style="padding: clamp(72px, 9vw, 120px) 0 0">
+  <div style="display: flex; flex-wrap: wrap; gap: clamp(32px, 5vw, 64px); align-items: center">
+    <div style="flex: 1 1 460px; min-width: 0; position: relative">
+      <div style="border-radius: 20px; overflow: hidden; aspect-ratio: 4 / 3; background: #141414">
+        <img src="../assets/photos/awards-presenter.jpg" alt="Presenter on a Full Circle awards stage with LED screens" style="width: 100%; height: 100%; object-fit: cover; display: block">
+      </div>
+      <div aria-hidden="true" style="position: absolute; right: -28px; bottom: -28px; width: 120px; height: 120px; border-radius: 50%; border: 8px solid {{accent}}; animation: fc-glow 4s ease-in-out infinite"></div>
+    </div>
+    <div style="flex: 1 1 420px; min-width: 0">
+      <div style="font-size: 14px; font-weight: 600; letter-spacing: 3px; color: {{accent}}">ABOUT US</div>
+      <h2 style="margin: 12px 0 0; font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: clamp(48px, 5.5vw, 84px); line-height: 0.92">Experts in live events &amp; AV solutions</h2>
+      <p style="margin: 20px 0 0; font-size: 18px; line-height: 1.65; font-weight: 300; color: rgba(255,255,255,0.8)">From small PA setups for schools to large-scale festival productions and custom stage sets for prestigious clients, we’ve worked alongside renowned musicians, actors, comedians and sports stars.</p>
+      <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; margin-top: 32px; padding-top: 28px; border-top: 1px solid rgba(255,255,255,0.12)">
+        <div>
+          <div style="font-family: 'Bebas Neue', sans-serif; font-size: 64px; line-height: 0.9; color: {{accent}}">20+</div>
+          <div style="margin-top: 6px; font-size: 15px; color: rgba(255,255,255,0.7)">Years of industry experience</div>
+        </div>
+        <div>
+          <div style="font-family: 'Bebas Neue', sans-serif; font-size: 64px; line-height: 0.9; color: #ffffff">2020</div>
+          <div style="margin-top: 6px; font-size: 15px; color: rgba(255,255,255,0.7)">Established in Sheffield</div>
+        </div>
+      </div>
+      <a class="fc-link" href="About.dc.html" style="display: inline-flex; align-items: center; gap: 10px; margin-top: 30px; min-height: 44px; font-size: 15px; font-weight: 500; letter-spacing: 1px; color: #ffffff; border-bottom: 2px solid {{accent}}">READ MORE</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TESTIMONIALS ================= -->
+<section id="testimonials" style="padding: clamp(72px, 9vw, 120px) 0 0">
+  <div style="display: flex; flex-wrap: wrap; border-radius: 24px; border: 1px solid rgba(255,255,255,0.08); overflow: hidden; background: #0b0b0b">
+
+    <div style="flex: 1 1 560px; min-width: 0; padding: clamp(32px, 5vw, 64px); background: radial-gradient(ellipse 60% 80% at 0% 0%, {{glow15}}, rgba(0,0,0,0) 70%)">
+      <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 20px">
+        <div>
+          <div style="font-size: 14px; font-weight: 600; letter-spacing: 3px; color: {{accent}}">TESTIMONIALS</div>
+          <h2 style="margin: 12px 0 0; font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: clamp(48px, 5vw, 76px); line-height: 0.9">What our clients say</h2>
+        </div>
+        <div style="display: flex; gap: 10px">
+          <button type="button" onClick="{{prevQuote}}" aria-label="Previous testimonial" style="width: 52px; height: 52px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.3); background: transparent; cursor: pointer; display: flex; align-items: center; justify-content: center">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"></path></svg>
+          </button>
+          <button type="button" onClick="{{nextQuote}}" aria-label="Next testimonial" style="width: 52px; height: 52px; border-radius: 50%; border: none; background: {{accent}}; cursor: pointer; display: flex; align-items: center; justify-content: center">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#050505" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+          </button>
+        </div>
+      </div>
+
+      <figure style="margin: 40px 0 0; min-height: 210px">
+        <svg width="56" height="56" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="27" fill="none" stroke="{{accent}}" stroke-width="6"></circle><text x="32" y="47" text-anchor="middle" style="font-family: 'Bebas Neue', sans-serif; font-size: 44px" fill="#ffffff">“</text></svg>
+        <div key="{{quoteKey}}" style="margin-top: 18px; animation: fc-fade .6s ease both">
+          <blockquote style="margin: 0; font-size: clamp(21px, 2.1vw, 28px); line-height: 1.45; font-weight: 300; color: #ffffff">{{quote.text}}</blockquote>
+          <figcaption style="margin-top: 20px; font-family: 'Bebas Neue', sans-serif; font-size: 28px; letter-spacing: 1px; color: {{accent}}">{{quote.name}}</figcaption>
+        </div>
+      </figure>
+
+      <div role="tablist" aria-label="Choose testimonial" style="display: flex; gap: 8px; margin-top: 28px">
+        <sc-for list="{{quotes}}" as="q" hint-placeholder-count="3">
+          <button type="button" role="tab" aria-selected="{{q.selected}}" aria-label="{{q.name}}" onClick="{{q.pick}}" style="height: 44px; width: {{q.w}}; padding: 0; border: none; background: transparent; cursor: pointer; display: flex; align-items: center; transition: width .4s ease">
+            <span style="display: block; width: 100%; height: 4px; border-radius: 2px; background: {{q.bar}}"></span>
+          </button>
+        </sc-for>
+      </div>
+    </div>
+
+    <div style="flex: 1 1 380px; min-width: 0; padding: clamp(32px, 5vw, 64px); border-left: 1px solid rgba(255,255,255,0.08); background: #0e0e0e; display: flex; flex-direction: column">
+      <div style="font-size: 14px; font-weight: 600; letter-spacing: 3px; color: {{accent}}">TRUSTED BY</div>
+      <p style="margin: 12px 0 0; font-size: 17px; line-height: 1.55; color: rgba(255,255,255,0.7); max-width: 380px">Councils, schools, agencies and brands across Yorkshire and beyond.</p>
+      <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 28px; flex: 1">
+        <sc-for list="{{clients}}" as="c" hint-placeholder-count="6">
+          <div class="fc-logo" style="display: flex; align-items: center; justify-content: center; min-height: 104px; padding: 18px 20px; border-radius: 14px; border: 1px solid rgba(255,255,255,0.08); background: rgba(255,255,255,0.02)">
+            <img src="{{c.src}}" alt="{{c.name}}" style="max-width: 100%; max-height: {{c.h}}; object-fit: contain; display: block">
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= LET'S GO LIVE ================= -->
+<section id="backstage" style="padding: clamp(72px, 9vw, 120px) 0 0">
+  <div style="position: relative; border-radius: 24px; overflow: hidden; min-height: 520px; display: flex; align-items: center; background: #0d0d0d">
+    <img src="../assets/photos/awards-stage-reflection.jpg" alt="Awards stage with LED screens and pyrotechnics reflected in a mirrored floor" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 60% 50%">
+    <div style="position: absolute; inset: 0; background: linear-gradient(90deg, rgba(5,5,5,0.94) 0%, rgba(5,5,5,0.75) 45%, rgba(5,5,5,0.15) 100%)"></div>
+    <div style="position: relative; padding: clamp(36px, 6vw, 80px) clamp(24px, 5vw, 72px); max-width: 640px">
+      <h2 style="margin: 0; font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: clamp(60px, 7.5vw, 120px); line-height: 0.86">Got an event?<br><span style="color: {{accent}}">Let’s go live.</span></h2>
+      <p style="margin: 20px 0 0; font-size: 18px; line-height: 1.6; font-weight: 300; color: rgba(255,255,255,0.85)">Step backstage and see how we turn ideas into reality, from AV setups to staging, lighting and video walls. Then tell us about yours.</p>
+      <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 28px; margin-top: 36px">
+        <a class="fc-btn" href="Contact.dc.html" style="display: inline-flex; align-items: center; gap: 12px; min-height: 60px; padding: 0 32px; border-radius: 8px; background: {{accent}}; color: #050505; font-weight: 600; font-size: 16px; letter-spacing: 1px">GET A QUOTE
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#050505" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+        </a>
+        <a class="fc-link" href="Backstage.dc.html" style="display: inline-flex; align-items: center; gap: 10px; min-height: 44px; font-size: 16px; font-weight: 500; letter-spacing: 1px; color: #ffffff; border-bottom: 2px solid {{accent}}">COME BACKSTAGE</a>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ================= FOOTER ================= -->
+<footer id="contact" style="padding: 64px 0 40px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 36px; border-top: 1px solid rgba(255,255,255,0.08); margin-top: clamp(72px, 9vw, 120px)">
+  <div style="display: flex; flex-direction: column; gap: 18px; max-width: 360px">
+    <span style="display: flex; align-items: center; gap: 12px">
+      <svg width="54" height="54" viewBox="0 0 54 54" aria-hidden="true"><circle cx="27" cy="27" r="23.5" fill="none" stroke="{{accent}}" stroke-width="6"></circle></svg>
+      <span style="display: flex; flex-direction: column; align-items: flex-end; font-family: 'Comfortaa', sans-serif; line-height: 1">
+        <span style="font-size: 29px; font-weight: 500; letter-spacing: -0.3px">Full Circle</span>
+        <span style="font-size: 14.5px; font-weight: 500; margin-top: 5px">Event Pr<span style="color: {{accent}}">o</span>ducti<span style="color: {{accent}}">o</span>n</span>
+      </span>
+    </span>
+    <span style="font-size: 15px; line-height: 1.6; color: rgba(255,255,255,0.65)">Innovative AV &amp; event solutions, from concept to completion.</span>
+  </div>
+  <nav aria-label="Footer" style="display: flex; flex-direction: column; gap: 10px; font-size: 15px">
+    <a class="fc-link" href="#top" style="color: rgba(255,255,255,0.75)">Home</a>
+    <a class="fc-link" href="About.dc.html" style="color: rgba(255,255,255,0.75)">About Us</a>
+    <a class="fc-link" href="Services.dc.html" style="color: rgba(255,255,255,0.75)">Services</a>
+    <a class="fc-link" href="Backstage.dc.html" style="color: rgba(255,255,255,0.75)">Backstage</a>
+    <a class="fc-link" href="Contact.dc.html" style="color: rgba(255,255,255,0.75)">Contact Us</a>
+    <a class="fc-link" href="#top" style="color: rgba(255,255,255,0.75)">Privacy Policy</a>
+  </nav>
+  <div style="display: flex; flex-direction: column; gap: 10px; font-size: 15px; color: rgba(255,255,255,0.75)">
+    <span style="font-size: 13px; letter-spacing: 2px; font-weight: 600; color: {{accent}}">CONTACT</span>
+    <a class="fc-link" href="mailto:info@fullcircleevents.co.uk" style="color: rgba(255,255,255,0.75)">info@fullcircleevents.co.uk</a>
+    <a class="fc-link" href="tel:01143499273" style="color: rgba(255,255,255,0.75)">0114 3499273</a>
+    <span style="line-height: 1.5">Meadowhall Road Industrial Estate,<br>Amos Road, Sheffield, S9 1BX</span>
+  </div>
+</footer>
+
+</div>
+</div>
+
+<!-- ================= STICKY TICKET (collapsible) ================= -->
+<div style="position: fixed; right: clamp(12px, 2vw, 28px); bottom: clamp(12px, 2vw, 28px); z-index: 40">
+  <sc-if value="{{ticketOpen}}" hint-placeholder-val="{{ true }}">
+    <div role="region" aria-label="Get a quote" style="position: relative; width: 252px; border-radius: 22px; padding: 16px 18px 18px; background: {{accent}}; color: #050505; box-shadow: 0 30px 60px -18px rgba(0,0,0,0.85), 0 0 0 1px rgba(0,0,0,0.2); transform-origin: bottom right; animation: fc-ticketin .5s cubic-bezier(.2,.9,.3,1.2) both">
+      <button type="button" onClick="{{dismissTicket}}" aria-label="Close and don’t show again" style="position: absolute; top: -14px; right: -10px; z-index: 2; width: 40px; height: 40px; border-radius: 50%; border: 2px solid {{accent}}; background: #050505; cursor: pointer; display: flex; align-items: center; justify-content: center">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.8" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg>
+      </button>
+      <div style="position: relative; margin: 2px 4px 0; padding: 14px 14px 12px; background: #f4f4f1; border-radius: 6px; transform: rotate(-5deg); box-shadow: 0 14px 26px -12px rgba(0,0,0,0.55); animation: fc-float 6s 1s ease-in-out infinite">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 8px">
+          <div style="font-family: 'Bebas Neue', sans-serif; font-size: 26px; line-height: 0.95">Full Circle<br>All Access</div>
+          <svg width="24" height="24" viewBox="0 0 26 26" aria-hidden="true"><circle cx="13" cy="13" r="10" fill="none" stroke="#050505" stroke-width="3.5"></circle></svg>
+        </div>
+        <div style="margin-top: 10px; font-size: 9.5px; letter-spacing: 1.5px; font-weight: 600">AUDIO · VISUAL · INFRASTRUCTURE</div>
+        <div aria-hidden="true" style="margin-top: 8px; height: 18px; background: repeating-linear-gradient(90deg, #050505 0 2px, transparent 2px 4px, #050505 4px 5px, transparent 5px 8px); opacity: .85"></div>
+        <div aria-hidden="true" style="position: absolute; left: -8px; top: 50%; width: 16px; height: 16px; border-radius: 50%; background: {{accent}}"></div>
+        <div aria-hidden="true" style="position: absolute; right: -8px; top: 50%; width: 16px; height: 16px; border-radius: 50%; background: {{accent}}"></div>
+      </div>
+      <a href="Contact.dc.html" style="display: flex; align-items: flex-end; justify-content: space-between; gap: 10px; margin-top: 16px; color: #050505">
+        <span>
+          <span style="display: block; font-size: 14px; font-weight: 500; line-height: 1.3">Site visit &amp; tailored quote</span>
+          <span style="display: block; font-family: 'Bebas Neue', sans-serif; font-size: 30px; line-height: 1; margin-top: 3px">Get in touch</span>
+        </span>
+        <span style="display: flex; align-items: center; justify-content: center; width: 46px; height: 46px; border-radius: 50%; background: #050505; flex: none">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+        </span>
+      </a>
+    </div>
+  </sc-if>
+  <sc-if value="{{ticketClosed}}" hint-placeholder-val="{{ false }}">
+    <button type="button" onClick="{{expandTicket}}" aria-label="Open All Access: get a quote" style="position: relative; width: 68px; height: 68px; border-radius: 50%; border: none; cursor: pointer; background: {{accent}}; display: flex; align-items: center; justify-content: center; box-shadow: 0 16px 40px -10px rgba(0,0,0,0.8); animation: fc-ticketin .45s cubic-bezier(.2,.9,.3,1.2) both">
+      <span aria-hidden="true" style="position: absolute; inset: -6px; border-radius: 50%; border: 2px solid {{accent}}; animation: fc-tping 2.4s ease-out infinite"></span>
+      <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#050505" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M3 8a2 2 0 0 0 0 4v0a2 2 0 0 1 0 4v2h18v-2a2 2 0 0 1 0-4a2 2 0 0 0 0-4V6H3z"></path><path d="M14 6v12" stroke-dasharray="2 2"></path></svg>
+    </button>
+  </sc-if>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#05F60E","options":["#05F60E","#FFFFFF","#3DFF8B"]},"$preview":{"width":1440,"height":4500}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { quote: 0, ticket: 'open' };
+  }
+  componentDidMount() {
+    var dismissed = false;
+    try { dismissed = window.localStorage.getItem('fc-ticket-dismissed') === '1'; } catch (e) {}
+    var phone = false;
+    try { phone = window.matchMedia('(max-width: 640px)').matches; } catch (e) {}
+    if (dismissed) this.setState({ ticket: 'gone' });
+    else if (phone) this.setState({ ticket: 'mini' });
+  }
+  rgba(hex, a) {
+    var h = String(hex || '#05F60E').replace('#', '');
+    if (h.length === 3) h = h.split('').map(function (c) { return c + c; }).join('');
+    var n = parseInt(h, 16);
+    if (isNaN(n)) n = 0x05F60E;
+    return 'rgba(' + ((n >> 16) & 255) + ',' + ((n >> 8) & 255) + ',' + (n & 255) + ',' + a + ')';
+  }
+  renderVals() {
+    var self = this;
+    var accent = this.props.accent ?? '#05F60E';
+
+    var STEPS = [
+      { num: '01', title: 'Concept', body: 'We start by listening: your audience, your venue, your budget and the moment you want people to remember.' },
+      { num: '02', title: 'Plan', body: 'Site visits, technical specs, power and timings, all mapped out together so there are no surprises on the day.' },
+      { num: '03', title: 'Build', body: 'Our crew delivers and installs the staging, sound, lighting and video, then tests everything until it’s show-ready.' },
+      { num: '04', title: 'Show', body: 'Experienced technicians run your event live and stay until the last case is loaded out. That’s full circle.' }
+    ];
+    var st = this.state;
+
+    var QUOTES = [
+      { text: 'An amazing crew with a wide variety of knowledge and very helpful. Definitely worth giving these lads a try regardless of the type of event you have planned, they can always bring something to it.', name: 'Cllr Ian Jones' },
+      { text: 'Full Circle Events were extremely responsive, friendly and professional. A great team – would definitely recommend!', name: 'Amanda Hobson' },
+      { text: 'Amazing service, very professional & full of knowledge.', name: 'The Hive, Skegness' }
+    ];
+    var qi = st.quote;
+
+    var TYPES = ['Conference and Seminars', 'Christmas', 'Award Ceremonies', 'Festivals', 'Corporate Events', 'Live Music', 'Sporting Events'];
+    var marquee = [];
+    for (var r = 0; r < 2; r++) {
+      TYPES.forEach(function (t, i) {
+        marquee.push(i % 2 === 0
+          ? { label: t, c: '#ffffff', stroke: '0px transparent' }
+          : { label: t, c: 'transparent', stroke: '1.5px rgba(255,255,255,0.7)' });
+      });
+    }
+
+    return {
+      ticketOpen: this.state.ticket === 'open',
+      ticketClosed: this.state.ticket === 'mini',
+      dismissTicket: function () {
+        try { window.localStorage.setItem('fc-ticket-dismissed', '1'); } catch (e) {}
+        self.setState({ ticket: 'gone' });
+      },
+      expandTicket: function () { self.setState({ ticket: 'open' }); },
+      accent: accent,
+      glow35: this.rgba(accent, 0.35),
+      glow15: this.rgba(accent, 0.16),
+      marquee: marquee,
+      steps: STEPS.map(function (s, i) {
+        return { num: s.num, title: s.title, body: s.body, anim: 'fc-node' + i };
+      }),
+      services: [
+        { num: '01', title: 'Audio', img: '../assets/photos/hooton-lodge-gig.jpg', pos: '50% 35%', alt: 'Crowd at a live gig at Hooton Lodge Farm under moving lights', body: 'Sound sized to the job, from small PA setups for schools to full festival systems, with experienced engineers on the desk.', tags: ['PA hire', 'Live sound', 'Technical support'] },
+        { num: '02', title: 'Visual', img: '../assets/photos/remembrance-church-projection.jpg', pos: '50% 30%', alt: 'Poppy projection on a church tower with a Full Circle technician watching', body: 'Lighting, video walls and projection that set the mood and carry the message, designed and operated by our team.', tags: ['Lighting', 'LED video walls', 'Projection'] },
+        { num: '03', title: 'Infrastructure', img: '../assets/photos/awards-stage-set-gold.jpg', pos: '50% 50%', alt: 'Custom awards stage set with LED screens', body: 'The backbone of the show: staging and custom stage sets built safely and on schedule, ready for the spotlight.', tags: ['Staging', 'Custom stage sets', 'Event production'] }
+      ],
+      quote: QUOTES[qi],
+      quoteKey: 'q-' + qi,
+      quotes: QUOTES.map(function (q, i) {
+        var on = i === qi;
+        return {
+          name: q.name, selected: on ? 'true' : 'false',
+          w: on ? '72px' : '32px',
+          bar: on ? accent : 'rgba(255,255,255,0.25)',
+          pick: function () { self.setState({ quote: i }); }
+        };
+      }),
+      prevQuote: function () { self.setState({ quote: (self.state.quote + QUOTES.length - 1) % QUOTES.length }); },
+      nextQuote: function () { self.setState({ quote: (self.state.quote + 1) % QUOTES.length }); },
+      clients: [
+        { name: 'Nexus Multi Academy Trust', src: '../assets/client-logos/nexus.png', h: '58px' },
+        { name: 'Rotherham Metropolitan Borough Council', src: '../assets/client-logos/rotherham-mbc.png', h: '50px' },
+        { name: 'QBC Agency', src: '../assets/client-logos/qbc-agency.png', h: '62px' },
+        { name: 'Nexdorf Electrical Engineering', src: '../assets/client-logos/nexdorf.png', h: '42px' },
+        { name: 'Association of British Climbing Walls', src: '../assets/client-logos/abc-climbing-walls.png', h: '48px' },
+        { name: 'Natural Bodybuilding Worldwide', src: '../assets/client-logos/nbw.png', h: '70px' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>
